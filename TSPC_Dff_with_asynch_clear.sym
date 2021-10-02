@@ -1,0 +1,50 @@
+v {xschem version=2.9.9 file_version=1.2 }
+G {}
+K {type=subcircuit
+format="@name @pinlist @VDDPIN @VSSPIN @symname wnmos=@wnmos lnmos=@lnmos wpmos=@wpmos lpmos=@lpmos m=@m"
+template="name=xTSPC_Dff1 m=1
++ VDDPIN=VDD VSSPIN=GND
++ wnmos=0.36 lnmos=0.15
++ wpmos=1.68 lpmos=0.15"
+extra="VDDPIN VSSPIN"}
+V {}
+S {type=subcircuit
+format="@name @pinlist @VDDPIN @VSSPIN wnmos=@wnmos lnmos=@lnmos wpmos=@wpmos lpmos=@lpmos m=@m"
+template="name=xTSPC_Dff1 m=1
++ VDDPIN=VDD VSSPIN=GND
++ wnmos=0.36 lnmos=0.15
++ wpmos=1.68 lpmos=0.15"
+extra="VDDPIN VSSPIN"}
+E {}
+L 4 -40 -60 30 -60 {}
+L 4 -40 50 30 50 {}
+L 4 -40 -60 -40 50 {}
+L 4 30 -60 30 50 {}
+L 4 -70 -50 -40 -50 {}
+L 4 -70 40 -40 40 {}
+L 4 30 -50 60 -50 {}
+L 4 40 40 60 40 {}
+L 4 -70 -0 -40 0 {}
+L 4 -40 30 -30 40 {}
+L 4 -40 50 -30 40 {}
+B 5 -72.5 37.5 -67.5 42.5 {name=clk
+dir=in}
+B 5 -72.5 -52.5 -67.5 -47.5 {name=D
+dir=in}
+B 5 57.5 37.5 62.5 42.5 {name=Q_bar
+dir=out}
+B 5 57.5 -52.5 62.5 -47.5 {name=Q
+dir=out}
+B 5 -72.5 -2.5 -67.5 2.5 {name=CLEAR
+dir=in}
+A 4 35 40 5 0 360 {}
+T {D} -40 -55 0 0 0.2 0.2 {}
+T {clk} -30 32.5 0 0 0.2 0.2 {}
+T {Q} 20 -55 0 0 0.2 0.2 {}
+T {Q_bar} 0 35 0 0 0.2 0.2 {}
+T {nmos:@wnmos\\/@lnmos
+pmos:@wpmos\\/@lpmos} -60 -90 0 0 0.2 0.2 {}
+T {@symname
+} -20 -120 0 0 0.2 0.2 {}
+T {@name} -40 -30 0 0 0.2 0.2 {}
+T {CLEAR} -40 -5 0 0 0.2 0.2 {}

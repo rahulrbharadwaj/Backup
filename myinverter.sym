@@ -1,0 +1,30 @@
+v {xschem version=2.9.9 file_version=1.2 }
+G {}
+K {type=subcircuit
+format="@name @pinlist @VDDPIN @VSSPIN @symname wnmos=@wnmos lnmos=@lnmos wpmos=@wpmos lpmos=@lpmos m=@m"
+template="name=xinv1 m=1
++ VDDPIN=VDD VSSPIN=VSS
++ wnmos=0.36 lnmos=0.15
++ wpmos=1.68 lpmos=0.15"
+extra="VDDPIN VSSPIN"}
+V {}
+S {type=subcircuit
+format="@name @pinlist @VDDPIN @VSSPIN @symname"
+template="name=xinv1 VDDPIN=VDD VSSPIN=VSS"
+extra="VDDPIN VSSPIN" }
+E {}
+L 4 -30 -40 -30 40 {}
+L 4 -30 40 30 -0 {}
+L 4 -30 -40 30 -0 {}
+L 4 -50 -0 -30 0 {}
+L 4 40 -0 50 -0 {}
+B 5 -52.5 -2.5 -47.5 2.5 {name=in
+dir=in}
+B 5 47.5 -2.5 52.5 2.5 {name=out
+dir=out}
+A 4 35 0 5 360 360 {}
+T {@name} -20 -10 0 0 0.2 0.2 {}
+T {@symname
+} -30 50 0 0 0.2 0.2 {}
+T {pmos:@wpmos\\/@lpmos} -40 -50 0 0 0.2 0.2 {}
+T {nmos:@wnmos\\/@lnmos} -40 -60 0 0 0.2 0.2 {}

@@ -1,0 +1,24 @@
+name=TT_model_sky130
+format=@value
+only_toplevel=true
+value="
+*.lib ~/open_pdks/sky130/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+
+.include ~/open_pdks/sky130/sky130A/libs.tech/ngspice/corners/tt/nonfet.spice
+
+
+*model
+.include ~/open_pdks/sky130/sky130A/libs.tech/ngspice/all.spice
+
+*mosfet
+.include ~/open_pdks/sky130/sky130A/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__pfet_01v8__tt.corner.spice
+.inclued ~/open_pdks/sky130/sky130A/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__nfet_01v8__tt.corner.spice
+
+*mismatch parameters
+.include ~/open_pdks/sky130/sky130A/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__pfet_01v8__mismatch.corner.spice
+.include ~/open_pdks/sky130/sky130A/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__nfet_01v8__mismatch.corner.spice
+"
+spice_ignore=false
+
